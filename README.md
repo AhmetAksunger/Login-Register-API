@@ -2,7 +2,7 @@
 
 Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
 
-1. Spring Boot Dependencies
+### Spring Boot Dependencies
    - Spring Boot Dev Tools
    - Lombok
    - Spring Web
