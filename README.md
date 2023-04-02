@@ -1,11 +1,17 @@
 # Login-Register-API
 
-Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL
+Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
+
+
 Hashes the passwords before saving into PostgreSQL, handles the case
 where user tries to register with an email that already has been registered before.
+
+
 Also checks whether user entered a valid age or not. (A valid age is 18<= age < 100)
 
+
 Also checks whether user entered a valid password. (A valid password must be longer than 5 chars and must include at least one digit)
+
 
 To access the API ui: http://localhost:8080/swagger-ui/index.html#/
 
