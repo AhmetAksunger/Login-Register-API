@@ -2,7 +2,15 @@
 
 Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
 
-
+-Spring Boot Dependencies
+  -Spring Boot Dev Tools
+  -Lombok
+  -Spring Web
+  -Spring Data JPA
+  -Validation
+  -PostgreSql Driver
+  
+  
 Hashes the passwords before saving into PostgreSQL, handles the case
 where user tries to register with an email that already has been registered before.
 
