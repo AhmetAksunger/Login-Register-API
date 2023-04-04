@@ -54,4 +54,14 @@ public class UserBusinessRules {
 		
 	}
 	
+	public void confirmPassword(String password, String confirmPassword) {
+		
+		if(!password.equals(confirmPassword)) {
+			
+			
+			throw new BusinessException("Passwords do not match");
+		}
+		
+	}
+	
 }

@@ -28,7 +28,7 @@ public class RegisterManager implements RegisterService {
 	@Override
 	public String register(RegisterUserRequest registerUserRequest) {
 		
-		
+		userBusinessRules.confirmPassword(registerUserRequest.getPassword(), registerUserRequest.getConfirmPassword());
 		userBusinessRules.checkIfEmailExists(registerUserRequest.getEmail());
 		userBusinessRules.isAgeValid(registerUserRequest.getAge());
 		userBusinessRules.isPasswordValid(registerUserRequest.getPassword());
@@ -42,6 +42,7 @@ public class RegisterManager implements RegisterService {
 		userRepository.save(user);
 		
 		return "Registered successfully";
+		
 	}
 	
 	

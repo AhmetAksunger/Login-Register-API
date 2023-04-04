@@ -19,7 +19,7 @@ public class RegisterController {
 	@Autowired
 	private RegisterService registerService;
 	
-	@GetMapping()
+	@GetMapping("/register")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public String register(RegisterUserRequest registerUserRequest) {
 		
