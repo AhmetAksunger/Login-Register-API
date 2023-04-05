@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ahmetaksunger.loginRegister.business.abstracts.RegisterService;
 import ahmetaksunger.loginRegister.business.requests.RegisterUserRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class RegisterController {
 	
 	@GetMapping("/register")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public String register(RegisterUserRequest registerUserRequest) {
+	public String register(@Valid RegisterUserRequest registerUserRequest) {
 		
 		return registerService.register(registerUserRequest);
 		

@@ -18,8 +18,6 @@ public class CreateUserRequest {
 	@NotBlank	
 	private String lastName;
 	
-	@NotNull
-	@NotBlank
 	private int age;
 	@NotNull
 	@NotBlank

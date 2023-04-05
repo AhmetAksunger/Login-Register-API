@@ -19,6 +19,7 @@ import ahmetaksunger.loginRegister.business.responses.GetAllUserResponse;
 import ahmetaksunger.loginRegister.business.responses.GetByFirstNameUserResponse;
 import ahmetaksunger.loginRegister.business.responses.GetByIdUserResponse;
 import ahmetaksunger.loginRegister.business.responses.GetByLastNameUserResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 
@@ -33,7 +34,7 @@ public class UserController {
 	
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@GetMapping("/add")
-	public void add(CreateUserRequest createUserRequest) {
+	public void add(@Valid CreateUserRequest createUserRequest) {
 		
 		userService.add(createUserRequest);
 		
@@ -41,27 +42,27 @@ public class UserController {
 	}
 	
 	@PutMapping("/update")
-	public void update(UpdateUserRequest updateUserRequest) {
+	public void update(@Valid UpdateUserRequest updateUserRequest) {
 		
 		userService.update(updateUserRequest);
 		
 	}
 	
 	@DeleteMapping("/remove/{id}")
-	public void remove(@PathVariable int id) {
+	public void remove(@Valid @PathVariable int id) {
 		
 		userService.remove(id);
 	}
 	
 	@GetMapping("/getbyid/{id}")
-	GetByIdUserResponse getById(@PathVariable int id) {
+	GetByIdUserResponse getById(@Valid @PathVariable int id) {
 		
 		return userService.getById(id);
 		
 	}
 	
 	@GetMapping("/getbyfirstname/{firstName}")
-	List<GetByFirstNameUserResponse> getByFirstName(@PathVariable String firstName){
+	List<GetByFirstNameUserResponse> getByFirstName(@Valid @PathVariable String firstName){
 		
 		return userService.getByFirstName(firstName);
 		

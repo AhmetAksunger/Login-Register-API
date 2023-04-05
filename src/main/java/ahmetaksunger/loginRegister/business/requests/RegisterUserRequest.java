@@ -1,5 +1,6 @@
 package ahmetaksunger.loginRegister.business.requests;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -16,11 +17,11 @@ public class RegisterUserRequest {
 	@NotBlank	
 	private String lastName;
 	
-	@NotNull
-	@NotBlank
 	private int age;
+	
 	@NotNull
 	@NotBlank
+	@Email
 	private String email;
 	@NotNull
 	@NotBlank

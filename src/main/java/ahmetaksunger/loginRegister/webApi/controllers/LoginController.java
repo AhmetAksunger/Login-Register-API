@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ahmetaksunger.loginRegister.business.abstracts.LoginService;
 import ahmetaksunger.loginRegister.business.requests.LoginUserRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -16,7 +17,7 @@ public class LoginController {
 	private LoginService loginService;
 	
 	@GetMapping()
-	public String login(LoginUserRequest loginUserRequest) {
+	public String login(@Valid LoginUserRequest loginUserRequest) {
 		
 		return loginService.login(loginUserRequest);
 		
