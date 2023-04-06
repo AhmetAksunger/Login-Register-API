@@ -11,15 +11,29 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
    - PostgreSql Driver
    
    
-Hashes the passwords before saving into PostgreSQL, handles the case
+### API Controllers and Methods
+   - **user-controller**
+      - add
+      - remove
+      - update
+      - getall
+      - getbyid
+      - getbyfirstname
+      - getbylastname
+   - **register-controller**
+      - register
+   - login-controller
+      - login
+   - **change-log-controller**
+      - getbyid (user id)
+      - getall
+   
+Hashing the passwords before saving into PostgreSQL, handles the case
 where user tries to register with an email that already has been registered before.
 
-
-Also checks whether user entered a valid age or not. (A valid age is 18<= age < 100)
-
-
-Also checks whether user entered a valid password. (A valid password must be longer than 5 chars and must include at least one digit)
-
+Checks whether age is valid. (A valid age is 18<= age < 100)
+Checks whether password is valid. (A valid password must be longer than 5 chars and must include at least one digit)
+Checks whether email is valid. (string@domain.com)
 
 To access the API ui: http://localhost:8080/swagger-ui/index.html#/
 
@@ -27,7 +41,7 @@ To access the API ui: http://localhost:8080/swagger-ui/index.html#/
 
 
 ## Main API
-User-Controller is the API for admins. It includes 7 different methods
+User-Controller is the API for admins.
 
 ![main](https://user-images.githubusercontent.com/116587797/230489830-e4c848f2-9618-43dc-8742-4770f895cae5.png)
 
