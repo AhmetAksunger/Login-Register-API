@@ -28,11 +28,15 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
       - getbyid (user id)
       - getall
    
-Hashing the passwords before saving into PostgreSQL, handles the case
+Hashing the passwords before saving into PostgreSQL, also handling with the case
 where user tries to register with an email that already has been registered before.
 
 Checks whether age is valid. (A valid age is 18<= age < 100)
+
+
 Checks whether password is valid. (A valid password must be longer than 5 chars and must include at least one digit)
+
+
 Checks whether email is valid. (string@domain.com)
 
 To access the API ui: http://localhost:8080/swagger-ui/index.html#/
