@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ahmetaksunger.loginRegister.business.abstracts.ChangeLogService;
 import ahmetaksunger.loginRegister.business.abstracts.UserService;
 import ahmetaksunger.loginRegister.business.requests.CreateUserRequest;
 import ahmetaksunger.loginRegister.business.requests.UpdateUserRequest;
@@ -28,6 +29,10 @@ import lombok.NoArgsConstructor;
 @Service
 public class UserManager implements UserService{
 
+	@Autowired
+	private ChangeLogService changeLogService;
+	
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -52,16 +57,20 @@ public class UserManager implements UserService{
 		
 		userRepository.save(user);
 		
+		changeLogService.logCreateDate(user);
+		changeLogService.logCreatedBy(user, "Admin");
+		
 	}
 
 	@Override
 	public void update(UpdateUserRequest updateUserRequest) {
 		
 		
-		User user = mapperService.forRequest().map(updateUserRequest, User.class);
-		
 		userBusinessRules.isAgeValid(updateUserRequest.getAge());
 		userBusinessRules.isPasswordValid(updateUserRequest.getPassword());
+		
+		
+		User user = mapperService.forRequest().map(updateUserRequest, User.class);
 		
 		if(updateUserRequest.getEmail() != user.getEmail()) {
 			
@@ -74,6 +83,8 @@ public class UserManager implements UserService{
 		user.setPassword(hashedPassword);
 		
 		userRepository.save(user);
+		
+		changeLogService.logModifyDate(user);
 		
 	}
 

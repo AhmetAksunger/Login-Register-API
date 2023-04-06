@@ -30,7 +30,7 @@ public class UserBusinessRules {
 		
 		if(age<18) {
 			
-			throw new BusinessException("Must be older than 18");
+			throw new BusinessException("Must be older than 18, given " + age);
 			
 		}else if(age>100) {
 			

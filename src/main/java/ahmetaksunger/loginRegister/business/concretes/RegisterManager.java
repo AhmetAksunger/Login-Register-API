@@ -3,6 +3,7 @@ package ahmetaksunger.loginRegister.business.concretes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ahmetaksunger.loginRegister.business.abstracts.ChangeLogService;
 import ahmetaksunger.loginRegister.business.abstracts.RegisterService;
 import ahmetaksunger.loginRegister.business.requests.RegisterUserRequest;
 import ahmetaksunger.loginRegister.business.rules.UserBusinessRules;
@@ -15,6 +16,9 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class RegisterManager implements RegisterService {
+	
+	@Autowired
+	private ChangeLogService changeLogService;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -40,6 +44,11 @@ public class RegisterManager implements RegisterService {
 		user.setPassword(hashedPassword);
 		
 		userRepository.save(user);
+		
+		changeLogService.logCreateDate(user);
+		changeLogService.logCreatedBy(user, "Registration");
+		
+		
 		
 		return "Registered successfully";
 		
