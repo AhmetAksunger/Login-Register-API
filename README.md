@@ -22,7 +22,7 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
       - getbylastname
    - **register-controller**
       - register
-   - login-controller
+   - **login-controller**
       - login
    - **change-log-controller**
       - getbyid (user id)
