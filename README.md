@@ -23,10 +23,14 @@ Also checks whether user entered a valid password. (A valid password must be lon
 
 To access the API ui: http://localhost:8080/swagger-ui/index.html#/
 
+**Here are some screenshots of the API**
+
+
 ## Main API
 User-Controller is the API for admins. It includes 7 different methods
 
-![main](https://user-images.githubusercontent.com/116587797/229370267-b5481773-933d-4638-8618-968ca6ad0fba.png)
+![main](https://user-images.githubusercontent.com/116587797/230489830-e4c848f2-9618-43dc-8742-4770f895cae5.png)
+
 
 ## Login API
 
@@ -38,7 +42,17 @@ User-Controller is the API for admins. It includes 7 different methods
 ![register](https://user-images.githubusercontent.com/116587797/229370521-f62d64f5-8883-4e39-8694-f048358b0cd6.png)
 ![registerResponse](https://user-images.githubusercontent.com/116587797/229370526-285ae780-e02e-434a-aae7-366c6d235206.png)
 
-## PostgreSQL "user" Table
+## ChangeLog API - Get All Result
+
+This is how get all result looks like in change log api
+
+![getall](https://user-images.githubusercontent.com/116587797/230490057-ac55b17a-88fc-4dde-999b-11210811bcac.png)
+
+
+## users Table
 
 ![PostgreTable](https://user-images.githubusercontent.com/116587797/229370540-b24d90a9-9f44-49d8-a891-75fa4f617aeb.png)
 
+## change_logs Table
+
+![changelog table](https://user-images.githubusercontent.com/116587797/230490327-ea3da5e6-1905-4526-aabf-9cad1d88f613.png)
