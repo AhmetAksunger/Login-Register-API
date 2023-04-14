@@ -66,11 +66,13 @@ public class UserManager implements UserService{
 	public void update(UpdateUserRequest updateUserRequest) {
 		
 		
+		User user = userRepository.findById(updateUserRequest.getId()).orElseThrow();
+		
 		userBusinessRules.isAgeValid(updateUserRequest.getAge());
 		userBusinessRules.isPasswordValid(updateUserRequest.getPassword());
 		
 		
-		User user = mapperService.forRequest().map(updateUserRequest, User.class);
+		user = mapperService.forRequest().map(updateUserRequest, User.class);
 		
 		if(updateUserRequest.getEmail() != user.getEmail()) {
 			

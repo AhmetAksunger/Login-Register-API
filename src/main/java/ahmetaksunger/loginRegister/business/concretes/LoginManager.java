@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ahmetaksunger.loginRegister.business.abstracts.LoginService;
 import ahmetaksunger.loginRegister.business.requests.LoginUserRequest;
 import ahmetaksunger.loginRegister.core.utilities.exceptions.BusinessException;
+import ahmetaksunger.loginRegister.core.utilities.exceptions.IncorrectMailException;
+import ahmetaksunger.loginRegister.core.utilities.exceptions.IncorrectPasswordException;
 import ahmetaksunger.loginRegister.core.utilities.passwordHasher.PasswordHasher;
 import ahmetaksunger.loginRegister.dataAccess.abstracts.UserRepository;
 import ahmetaksunger.loginRegister.entities.User;
@@ -23,7 +25,7 @@ public class LoginManager implements LoginService{
 		
 		if(user == null) {
 			
-			throw new BusinessException("Wrong email");
+			throw new IncorrectMailException("Incorrect email");
 			
 		}
 		
@@ -35,7 +37,7 @@ public class LoginManager implements LoginService{
 			
 		}else {
 			
-			throw new BusinessException("Wrong password ");
+			throw new IncorrectPasswordException("Incorrect password");
 		}
 		
 	}

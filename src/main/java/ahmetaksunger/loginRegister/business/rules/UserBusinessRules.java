@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ahmetaksunger.loginRegister.core.utilities.exceptions.BusinessException;
+import ahmetaksunger.loginRegister.core.utilities.exceptions.EmailInUseException;
 import ahmetaksunger.loginRegister.dataAccess.abstracts.UserRepository;
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class UserBusinessRules {
 		
 		if(userRepository.existsByEmail(email)) {
 			
-			throw new BusinessException("Email is in use");
+			throw new EmailInUseException("Email is in use");
 			
 		}
 		
@@ -57,8 +58,7 @@ public class UserBusinessRules {
 	public void confirmPassword(String password, String confirmPassword) {
 		
 		if(!password.equals(confirmPassword)) {
-			
-			
+
 			throw new BusinessException("Passwords do not match");
 		}
 		

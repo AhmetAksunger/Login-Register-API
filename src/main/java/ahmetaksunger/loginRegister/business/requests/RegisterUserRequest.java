@@ -21,7 +21,7 @@ public class RegisterUserRequest {
 	
 	@NotNull
 	@NotBlank
-	@Email
+	@Email(message="Provide a valid mail")
 	private String email;
 	@NotNull
 	@NotBlank
