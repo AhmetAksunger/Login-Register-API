@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import ahmetaksunger.loginRegister.entities.User;
+import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 
@@ -15,6 +16,11 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	boolean existsByEmail(String email);
 	
 	User findByEmail(String email);
+
+	List<User> findAllByOrderByFirstNameAsc();
+
+	@Query("SELECT u FROM User u WHERE LOWER(u.firstName) LIKE %?1% OR LOWER(u.lastName) LIKE %?1%")
+	List<User> findByFirstNameOrLastName(String search);
 	
 	
 }
