@@ -9,6 +9,8 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
    - Spring Data JPA
    - Validation
    - PostgreSql Driver
+   - Thymeleaf
+   - SpringMVC
    
    
 ### API Controllers and Methods
@@ -36,18 +38,8 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
    - **User List**: localhost:8080/list
    - **Add Form**: localhost:8080/addform
    - **Update Form**: localhost:8080/updateform 
-Hashing the passwords before saving into PostgreSQL, also handling with the case
-where user tries to register with an email that already has been registered before.
 
-Checks whether age is valid. (A valid age is 18<= age < 100)
-
-
-Checks whether password is valid. (A valid password must be longer than 5 chars and must include at least one digit)
-
-
-Checks whether email is valid. (string@domain.com)
-
-To access the API ui: http://localhost:8080/swagger-ui/index.html#/
+To access the swagger: http://localhost:8080/swagger-ui/index.html#/
 
 **Here are some screenshots of the API**
 
