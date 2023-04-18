@@ -37,7 +37,7 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
    - **Register Form** : http://localhost:8080/registerform
    - **User List**: http://localhost:8080/list
    - **Add Form**: http://localhost:8080/addform
-   - **Update Form**: http://localhost:8080/updateform 
+   - **Update Form**: http://localhost:8080/updateform?id= 
 
 To access the swagger: http://localhost:8080/swagger-ui/index.html#/
 
