@@ -25,5 +25,7 @@ public interface UserService {
 	List<GetByLastNameUserResponse> getByLastName(String lastName);
 	
 	List<GetAllUserResponse> getAll();
+
+	List<GetAllUserResponse> findByFirstNameOrLastName(String search);
 	
 }

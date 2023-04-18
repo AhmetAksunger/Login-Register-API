@@ -74,7 +74,7 @@ public class UserManager implements UserService{
 		
 		user = mapperService.forRequest().map(updateUserRequest, User.class);
 		
-		if(updateUserRequest.getEmail() != user.getEmail()) {
+		if(!updateUserRequest.getEmail().equals(user.getEmail())) {
 			
 			userBusinessRules.checkIfEmailExists(updateUserRequest.getEmail());	
 			
@@ -135,7 +135,7 @@ public class UserManager implements UserService{
 	@Override
 	public List<GetAllUserResponse> getAll() {
 		
-		List<User> users = userRepository.findAll();
+		List<User> users = userRepository.findAllByOrderByFirstNameAsc();
 		
 		List<GetAllUserResponse> responses = users.stream().map(user->mapperService.forResponse()
 				.map(user, GetAllUserResponse.class)).collect(Collectors.toList());
@@ -143,5 +143,16 @@ public class UserManager implements UserService{
 		return responses;
 	}
 
-	
+	@Override
+	public List<GetAllUserResponse> findByFirstNameOrLastName(String search) {
+
+		List<User> users = userRepository.findByFirstNameOrLastName(search.toLowerCase());
+
+		List<GetAllUserResponse> responses = users.stream().map(user->mapperService.forResponse()
+				.map(user, GetAllUserResponse.class)).collect(Collectors.toList());
+
+		return responses;
+	}
+
+
 }

@@ -85,7 +85,7 @@ public class ExceptionHandler {
 		UserErrorResponse error = new UserErrorResponse();
 		
 		error.setStatus(HttpStatus.BAD_REQUEST.value());
-		error.setMessage("Unexpected error occured");
+		error.setMessage("Unexpected error occured " + exception.getMessage());
 		error.setTimeStamp(System.currentTimeMillis());
     	
     	return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);

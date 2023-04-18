@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Login Form | CodingLab</title> -->
+  <link rel="stylesheet" href="/css/style-register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="title"><span>Register Form</span></div>
+    <form action="#" th:action="@{/register}" th:object="${registerRequest}" method="post">
+      <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="First name" th:field="*{firstName}" required>
+      </div>
+      <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Last name" th:field="*{lastName}" required>
+      </div>
+      <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Age" th:field="*{age}" required>
+      </div>
+      <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="email" placeholder="Email" th:field="*{email}" required>
+      </div>
+      <div class="row">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" th:field="*{password}" required>
+      </div>
+
+      <div class="row">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Confirm password" th:field="*{confirmPassword}" required>
+      </div>
+      <div class="row button">
+        <input type="submit" value="Register">
+      </div>
+      <div class="signup-link">Already have an account? <a href="/loginform">Login</a></div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

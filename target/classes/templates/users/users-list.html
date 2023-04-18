@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Users List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h3>Users List</h3>
+  <hr>
+  <!-- Add a button -->
+  <a th:href="@{/addform}" class="btn btn-primary btn-sm mb-3">Add User</a>
+
+  <div class="container mt-4"> <!-- Add margin top to create gap -->
+    <hr>
+    <div class="row">
+      <div class="col-md-8"> <!-- Use a grid system to create columns -->
+        <form action="/search" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="Search">
+          </div>
+
+          <div class="col-md-4"> <!-- Use a grid system to create columns -->
+            <button type="submit" class="btn btn-primary float-md-right">Search</button> <!-- Use float to position the button on the right -->
+            <!-- Move the form closing tag to after the button -->
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped mt-4"> <!-- Add margin top to create gap -->
+      <!-- Table content -->
+    </table>
+  </div>
+
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Action</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="tempUser : ${users}">
+
+      <td th:text="${tempUser.firstName}"></td>
+      <td th:text="${tempUser.lastName}"></td>
+      <td th:text="${tempUser.age}"></td>
+      <td th:text="${tempUser.email}"></td>
+
+      <td>
+        <!-- Add Update and Delete buttons -->
+        <a th:href="@{/updateform(id=${tempUser.id})}" class="btn btn-primary btn-sm">Update</a>
+        <a th:href="@{/delete(id=${tempUser.id})}" class="btn btn-danger btn-sm " onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
