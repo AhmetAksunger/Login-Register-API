@@ -33,11 +33,11 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
       - getByFirstNameOrLastName
 
 ### UI Urls
-   - **Login Form** : localhost:8080/loginform
-   - **Register Form** : localhost:8080/registerform
-   - **User List**: localhost:8080/list
-   - **Add Form**: localhost:8080/addform
-   - **Update Form**: localhost:8080/updateform 
+   - **Login Form** : http://localhost:8080/loginform
+   - **Register Form** : http://localhost:8080/registerform
+   - **User List**: http://localhost:8080/list
+   - **Add Form**: http://localhost:8080/addform
+   - **Update Form**: http://localhost:8080/updateform 
 
 To access the swagger: http://localhost:8080/swagger-ui/index.html#/
 
