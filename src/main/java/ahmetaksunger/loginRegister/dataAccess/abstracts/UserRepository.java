@@ -19,8 +19,9 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
 	List<User> findAllByOrderByFirstNameAsc();
 
-	@Query("SELECT u FROM User u WHERE LOWER(u.firstName) LIKE %?1% OR LOWER(u.lastName) LIKE %?1%")
+	@Query("SELECT u FROM User u WHERE LOWER(u.firstName) LIKE %:search% OR LOWER(u.lastName) LIKE %:search%")
 	List<User> findByFirstNameOrLastName(String search);
-	
+
+	//findByFirstNameOrLastName(String search1, String search2) would also work if i gave the same string to each parameters
 	
 }

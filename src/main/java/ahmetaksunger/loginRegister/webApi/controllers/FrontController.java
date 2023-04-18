@@ -1,6 +1,7 @@
 package ahmetaksunger.loginRegister.webApi.controllers;
 
 
+import ahmetaksunger.loginRegister.business.abstracts.ChangeLogService;
 import ahmetaksunger.loginRegister.business.abstracts.LoginService;
 import ahmetaksunger.loginRegister.business.abstracts.RegisterService;
 import ahmetaksunger.loginRegister.business.abstracts.UserService;
@@ -8,9 +9,7 @@ import ahmetaksunger.loginRegister.business.requests.CreateUserRequest;
 import ahmetaksunger.loginRegister.business.requests.LoginUserRequest;
 import ahmetaksunger.loginRegister.business.requests.RegisterUserRequest;
 import ahmetaksunger.loginRegister.business.requests.UpdateUserRequest;
-import ahmetaksunger.loginRegister.business.responses.GetAllUserResponse;
-import ahmetaksunger.loginRegister.business.responses.GetByFirstNameUserResponse;
-import ahmetaksunger.loginRegister.business.responses.GetByIdUserResponse;
+import ahmetaksunger.loginRegister.business.responses.*;
 import ahmetaksunger.loginRegister.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +31,9 @@ public class FrontController {
 
     @Autowired
     private RegisterService registerService;
+
+    @Autowired
+    private ChangeLogService logService;
 
     @GetMapping("/list")
     public String listUsers(Model model){
@@ -138,5 +140,24 @@ public class FrontController {
         return ResponseEntity.ok(registerService.register(registerUserRequest));
     }
 
+    @GetMapping("/logs")
+    public String getLogs(Model model){
 
+        List<GetAllChangeLogsResponse> logs = logService.getAll();
+
+        model.addAttribute("logs",logs);
+
+        return "logs/changelog";
+    }
+
+    @GetMapping("/searchlog")
+    public String searchLog(@RequestParam("keyword") String keyword,Model model){
+
+         List<GetByFirstNameOrLastNameChangeLogsResponse> logs = logService.getByUserFirstNameOrUserLastName(keyword);
+
+         model.addAttribute("logs",logs);
+
+         return "logs/changelog";
+
+    }
 }

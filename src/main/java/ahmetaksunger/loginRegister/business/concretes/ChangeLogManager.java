@@ -3,6 +3,8 @@ package ahmetaksunger.loginRegister.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import ahmetaksunger.loginRegister.business.responses.GetByCreatedByResponse;
+import ahmetaksunger.loginRegister.business.responses.GetByFirstNameOrLastNameChangeLogsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -87,6 +89,27 @@ public class ChangeLogManager implements ChangeLogService {
 		GetByIdChangeLogResponse response = mapperService.forResponse().map(changeLog, GetByIdChangeLogResponse.class);
 		
 		return response;
+	}
+
+	@Override
+	public List<GetByCreatedByResponse> getByCreatedBy(String search) {
+
+		List<ChangeLog> logs = changeLogRepository.findByCreatedBy(search);
+
+		List<GetByCreatedByResponse> responses = logs.stream().map(changeLog->mapperService.forResponse().map(changeLog, GetByCreatedByResponse.class)).collect(Collectors.toList());
+
+		return responses;
+	}
+
+	@Override
+	public List<GetByFirstNameOrLastNameChangeLogsResponse> getByUserFirstNameOrUserLastName(String search) {
+
+		List<ChangeLog> logs = changeLogRepository.findByUserFirstNameOrUserLastName(search.toLowerCase());
+
+		List<GetByFirstNameOrLastNameChangeLogsResponse> responses = logs.stream().map(changeLog->mapperService.forResponse().map(changeLog, GetByFirstNameOrLastNameChangeLogsResponse.class)).collect(Collectors.toList());
+
+
+		return responses;
 	}
 
 }

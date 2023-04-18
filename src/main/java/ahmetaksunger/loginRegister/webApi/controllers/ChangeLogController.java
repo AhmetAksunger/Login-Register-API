@@ -2,6 +2,8 @@ package ahmetaksunger.loginRegister.webApi.controllers;
 
 import java.util.List;
 
+import ahmetaksunger.loginRegister.business.responses.GetByCreatedByResponse;
+import ahmetaksunger.loginRegister.business.responses.GetByFirstNameOrLastNameChangeLogsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +36,17 @@ public class ChangeLogController {
 		return changeLogService.getById(id);
 		
 	}
-	
-	
+
+	@GetMapping("/getbycreatedby")
+	public List<GetByCreatedByResponse> getByCreatedBy(String search){
+
+		return changeLogService.getByCreatedBy(search);
+	}
+
+	@GetMapping("/getbyfirstnameorlastname")
+	public List<GetByFirstNameOrLastNameChangeLogsResponse> getByFirstNameOrLastName(String search){
+
+		return changeLogService.getByUserFirstNameOrUserLastName(search);
+	}
 	
 }
