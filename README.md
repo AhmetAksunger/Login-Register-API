@@ -20,6 +20,7 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
       - getbyid
       - getbyfirstname
       - getbylastname
+      -getbyfirstnameorlastname
    - **register-controller**
       - register
    - **login-controller**
@@ -27,7 +28,14 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
    - **change-log-controller**
       - getbyid (user id)
       - getall
-   
+      - getByFirstNameOrLastName
+
+### UI Urls
+   - **Login Form** : localhost:8080/loginform
+   - **Register Form** : localhost:8080/registerform
+   - **User List**: localhost:8080/list
+   - **Add Form**: localhost:8080/addform
+   - **Update Form**: localhost:8080/updateform 
 Hashing the passwords before saving into PostgreSQL, also handling with the case
 where user tries to register with an email that already has been registered before.
 
@@ -43,28 +51,28 @@ To access the API ui: http://localhost:8080/swagger-ui/index.html#/
 
 **Here are some screenshots of the API**
 
-
-## Main API
+## Swagger
 User-Controller is the API for admins.
 
 ![main](https://user-images.githubusercontent.com/116587797/230489830-e4c848f2-9618-43dc-8742-4770f895cae5.png)
 
+## Login Form
+![login](https://user-images.githubusercontent.com/116587797/232918589-9d80510b-b11a-4215-a4a4-47ec25162d2c.png)
 
-## Login API
+## Register Form
+![register](https://user-images.githubusercontent.com/116587797/232918639-443f42e7-cc42-44ea-a99e-08133afcdbc7.png)
 
-![login](https://user-images.githubusercontent.com/116587797/229370494-a3348389-9c06-4dbf-b185-bccfd342023d.png)
-![loginResponse](https://user-images.githubusercontent.com/116587797/229370505-1622349f-5de3-4495-a9ea-ffa68e48d5b3.png)
+## User List
+![userslist](https://user-images.githubusercontent.com/116587797/232918669-dfe452b6-a554-4409-86c3-08d4d48afe86.png)
 
-## Register API
+## Add User Form
+![add user form](https://user-images.githubusercontent.com/116587797/232918702-9b4d0762-5780-4165-a33c-02e4d64142f7.png)
 
-![register](https://user-images.githubusercontent.com/116587797/229370521-f62d64f5-8883-4e39-8694-f048358b0cd6.png)
-![registerResponse](https://user-images.githubusercontent.com/116587797/229370526-285ae780-e02e-434a-aae7-366c6d235206.png)
+## Update User Form
+![update user](https://user-images.githubusercontent.com/116587797/232918731-acec4c34-9fc7-4472-ad15-4bb70c2c2668.png)
 
-## ChangeLog API - Get All Result
-
-This is how get all result looks like in change log api
-
-![getall](https://user-images.githubusercontent.com/116587797/230490057-ac55b17a-88fc-4dde-999b-11210811bcac.png)
+## Logs
+![logs](https://user-images.githubusercontent.com/116587797/232918746-62fad2e2-8dd3-4770-8d9f-62b1dd26f5fb.png)
 
 
 ## users Table
