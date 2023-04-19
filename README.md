@@ -22,7 +22,7 @@ Login Register API coded in Java using Java Spring Boot,Swagger and PostgreSQL.
       - getbyid
       - getbyfirstname
       - getbylastname
-      -getbyfirstnameorlastname
+      - getbyfirstnameorlastname
    - **register-controller**
       - register
    - **login-controller**
@@ -64,7 +64,7 @@ User-Controller is the API for admins.
 ![update user](https://user-images.githubusercontent.com/116587797/232918731-acec4c34-9fc7-4472-ad15-4bb70c2c2668.png)
 
 ## Logs
-![logs](https://user-images.githubusercontent.com/116587797/232918746-62fad2e2-8dd3-4770-8d9f-62b1dd26f5fb.png)
+![logs](https://user-images.githubusercontent.com/116587797/233120755-37ec8fc2-386e-45d7-9d6c-007ef89d2a67.png)
 
 
 ## users Table
