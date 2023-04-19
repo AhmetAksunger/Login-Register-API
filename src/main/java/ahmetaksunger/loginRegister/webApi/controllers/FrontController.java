@@ -160,4 +160,14 @@ public class FrontController {
          return "logs/changelog";
 
     }
+
+    @GetMapping("/filterlog")
+    public String filterLog(@RequestParam("createdBy") String createdBy, Model model){
+
+        List<GetByCreatedByResponse> logs = logService.getByCreatedBy(createdBy);
+
+        model.addAttribute("logs",logs);
+
+        return "logs/changelog";
+    }
 }

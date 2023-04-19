@@ -19,17 +19,25 @@
   <div class="container mt-4"> <!-- Add margin top to create gap -->
     <hr>
     <div class="row">
-      <div class="col-md-8"> <!-- Use a grid system to create columns -->
+      <div class="col-md-6"> <!-- Use a grid system to create columns -->
         <form action="/searchlog" method="get">
-          <div class="form-group">
+          <div class="input-group">
             <input type="text" class="form-control" name="keyword" placeholder="Search">
+            <button type="submit" class="btn btn-primary">Search</button> <!-- Use float to position the button on the right -->
           </div>
-
-          <div class="col-md-4"> <!-- Use a grid system to create columns -->
-            <button type="submit" class="btn btn-primary float-md-right">Search</button> <!-- Use float to position the button on the right -->
-            <!-- Move the form closing tag to after the button -->
+          <!-- Move the form closing tag to after the button -->
+        </form>
+      </div>
+      <div class="col-md-6"> <!-- Use a grid system to create columns -->
+        <form action="/filterlog" method="get">
+          <div class="input-group">
+            <select class="form-select" name="createdBy">
+              <option value="">All</option>
+              <option value="Admin">Admin</option>
+              <option value="Registration">Registration</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Apply</button>
           </div>
-
         </form>
       </div>
     </div>

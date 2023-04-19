@@ -71,15 +71,16 @@ public class UserManager implements UserService{
 		userBusinessRules.isAgeValid(updateUserRequest.getAge());
 		userBusinessRules.isPasswordValid(updateUserRequest.getPassword());
 		
-		
-		user = mapperService.forRequest().map(updateUserRequest, User.class);
-		
+
 		if(!updateUserRequest.getEmail().equals(user.getEmail())) {
-			
-			userBusinessRules.checkIfEmailExists(updateUserRequest.getEmail());	
+
+			userBusinessRules.checkIfEmailExists(updateUserRequest.getEmail());
 			
 		}
-		
+
+		user = mapperService.forRequest().map(updateUserRequest, User.class);
+
+
 		String hashedPassword = PasswordHasher.hashPassword(updateUserRequest.getPassword());
 		
 		user.setPassword(hashedPassword);

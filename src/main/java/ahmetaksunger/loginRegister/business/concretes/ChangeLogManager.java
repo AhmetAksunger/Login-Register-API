@@ -94,7 +94,14 @@ public class ChangeLogManager implements ChangeLogService {
 	@Override
 	public List<GetByCreatedByResponse> getByCreatedBy(String search) {
 
-		List<ChangeLog> logs = changeLogRepository.findByCreatedBy(search);
+		List<ChangeLog> logs;
+
+
+		if(search == null || search.isEmpty()){
+			logs = changeLogRepository.findAll();
+		}else{
+			logs = changeLogRepository.findByCreatedBy(search);
+		}
 
 		List<GetByCreatedByResponse> responses = logs.stream().map(changeLog->mapperService.forResponse().map(changeLog, GetByCreatedByResponse.class)).collect(Collectors.toList());
 
